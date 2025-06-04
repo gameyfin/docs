@@ -91,3 +91,4 @@ nav:
     - configuration/index.md
   - "Plugins":
     - plugins/index.md
+    - plugins/tutorial.md
