@@ -28,11 +28,11 @@ As IDEs, we recommend using IntelliJ IDEA for Kotlin development, but you can al
 2. **Create a New Project**: Open your IDE and create a new Gradle project. You can use the following settings (change name, grouId and artifactId):
    <img src="/docs/assets/plugin-tutorial/new-project.png" alt="New project IntelliJ" style="border-radius: 10px;" />
 
-## Plugin Dependencies
+## Build Script Configuration
 
 Open the `build.gradle.kts` file and configure it for your plugin development. Here’s a basic setup:
 
-1. **Read version from plugin manifest file**: Add the following code to read the version from the `MANIFEST.MF` file:
+1. **Read version from plugin manifest file**: Add the following code to read the version from the `MANIFEST.MF` file (this file will be created in a later step):
    ```kotlin
    // Read the version from the MANIFEST.MF file in resources
    val manifestFile = file("src/main/resources/MANIFEST.MF")
