@@ -193,22 +193,26 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
         }
 
         // Custom validation logic
-        
+
         // Create a mutable map to hold validation errors (or use the one from the previous validation)
         val errors = mutableMapOf<String, String>()
 
-        val exampleConfigValue = config<String>("exampleConfigProperty")
+        val exampleConfigValue = config["exampleConfigProperty"]
         if (exampleConfigValue != "helloworld") {
             errors["exampleConfigProperty"] = "Value must be 'helloworld'"
         }
-        
-        val exampleEnumConfigProperty = config<ExampleEnum>("exampleEnumConfigProperty")
-        if(exampleEnumConfigProperty == ExampleEnum.OPTION_THREE) {
+
+        val exampleEnumConfigProperty = config["exampleEnumConfigProperty"]
+        if(exampleEnumConfigProperty == null) {
+            errors["exampleEnumConfigProperty"] = "This field is required"
+        } else if(ExampleEnum.valueOf(exampleEnumConfigProperty) == ExampleEnum.OPTION_THREE) {
             errors["exampleEnumConfigProperty"] = "Option THREE is deprecated"
         }
-        
-        val secretExampleConfigValue = config<String>("secretExampleConfigProperty")
-        if (secretExampleConfigValue.length < 5) {
+
+        val secretExampleConfigValue = config["secretExampleConfigProperty"]
+        if(secretExampleConfigValue == null) {
+            errors["secretExampleConfigProperty"] = "This field is required"
+        } else if (secretExampleConfigValue.length < 5) {
             errors["secretExampleConfigProperty"] = "Must be at least 5 characters long"
         }
 
