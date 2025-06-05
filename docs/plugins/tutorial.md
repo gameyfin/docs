@@ -32,7 +32,17 @@ As IDEs, we recommend using IntelliJ IDEA for Kotlin development, but you can al
 
 Open the `build.gradle.kts` file and configure it for your plugin development. Here’s a basic setup:
 
-1. **Plugins**: Add the following plugins:
+1. **Read version from plugin manifest file**: Add the following code to read the version from the `MANIFEST.MF` file:
+   ```kotlin
+   // Read the version from the MANIFEST.MF file in resources
+   val manifestFile = file("src/main/resources/MANIFEST.MF")
+   val manifestVersion: String? = if (manifestFile.exists()) {
+       Manifest(manifestFile.inputStream()).mainAttributes.getValue("Plugin-Version")
+   } else null
+   version = manifestVersion ?: "1.0-SNAPSHOT"
+   ```
+
+2. **Plugins**: Add the following plugins:
    ```kotlin
    plugins {
      //... other plugins
@@ -41,7 +51,7 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
    ```
    KSP (Kotlin Symbol Processing) is used for annotation processing in Kotlin.
 
-2. **Dependencies**: Add the following dependencies (check for their latest versions):
+3. **Dependencies**: Add the following dependencies (check for their latest versions):
    ```kotlin
    dependencies {
      // ... other dependencies
@@ -50,7 +60,7 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
      compileOnly("de.grimsi.gameyfin:plugin-api:2.0.0") // match with your Gameyfin version
    }
    ```
-3. **Build Script**: Ensure your `build.gradle.kts` file is set up to build a JAR file containing your plugin code and resources:
+4. **Build Script**: Ensure your `build.gradle.kts` file is set up to build a JAR file containing your plugin code and resources:
    ```kotlin
    tasks.jar { 
       duplicatesStrategy = DuplicatesStrategy.EXCLUDE
