@@ -92,14 +92,14 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
    ```
 ## Creating Your First Plugin
 
-1. **Manifest File**: Create a `MANIFEST.MF` file in `src/main/resources` with the following content (the content is explained [here](/docs/plugins/#plugin-manifest)):
+1. **Manifest File**: Create a `MANIFEST.MF` file in `src/main/resources` with the following content (the content is explained [here](/docs/plugins#plugin-manifest)):
    ```
    Plugin-Version: 1.0.0
    Plugin-Class: de.grimsi.gameyfinplugins.TutorialPlugin
    Plugin-Id: de.grimsi.gameyfinplugins.helloworld
    Plugin-Name: Gameyfin Example Plugin
    Plugin-Description: Demonstrates how to implement a simple game metadata plugin.<br>
-   Always returns a hardcoded game with the name "Hello World" and the original ID "hello-world-game".
+    Always returns a hardcoded game with the name "Hello World" and the original ID "hello-world-game".
    Plugin-Short-Description: Example plugin for Gameyfin
    Plugin-Author: grimsi
    Plugin-License: MIT
