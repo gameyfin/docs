@@ -1,12 +1,11 @@
 ---
-title: Plugin Development Guide
+title: Plugin Development Tutorial
 description: Learn how to create Gameyfin plugins
-icon: material/power-plug
 ---
 
-# Plugin Development Guide
+# Plugin Development Tutorial
 
-In this guide, we will walk through the process of creating a plugin for Gameyfin.
+In this tutorial, we will walk through the process of creating a plugin for Gameyfin.
 We will cover the prerequisites, set up your development environment, and create a simple plugin.
 
 ## Prerequisites

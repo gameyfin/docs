@@ -91,4 +91,6 @@ nav:
     - configuration/index.md
   - "Plugins":
     - plugins/index.md
+    - plugins/security.md
+    - plugins/info-for-devs.md
     - plugins/tutorial.md
