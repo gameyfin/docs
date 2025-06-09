@@ -1,5 +1,5 @@
 # Project information
-site_name: Gameyfin v2 Docs (beta)
+site_name: Gameyfin
 site_url: https://gameyfin.org
 site_author: grimsi
 site_description: Documentation for Gameyfin v2, your video game manager.
@@ -50,6 +50,7 @@ theme:
 # Plugins
 plugins:
   - search
+  - glightbox
 
 # Additional configuration
 # Additional configuration
@@ -80,6 +81,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - footnotes
+  - attr_list
+  - md_in_html
 
 # Navigation
 nav:
