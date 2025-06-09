@@ -12,7 +12,7 @@ hide:
 
 <div style="max-width: 70%; margin: 0 auto; display: block;">
 
-<img src="assets/screenshot-gameview.png" alt="Gameyfin screenshot of game detail view" style="border-radius: 10px;" />
+<img src="/assets/screenshot-gameview.png" alt="Gameyfin screenshot of game detail view" style="border-radius: 10px;" />
 
 <p style="text-align: center;">Your video game library manager - simple, fast, <b>FOSS</b>.</p>
 

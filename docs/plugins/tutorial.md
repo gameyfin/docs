@@ -22,10 +22,8 @@ We will use Gradle as the build system, which is the standard for Gameyfin plugi
 As IDEs, we recommend using IntelliJ IDEA for Kotlin development, but you can also use VS Code with the Kotlin extension.
 
 ## Setting Up Your Development Environment
-1. **Clone the Gameyfin Repository**: Start by cloning the Gameyfin repository from GitHub.
-
-2. **Create a New Project**: Open your IDE and create a new Gradle project. You can use the following settings (change name, grouId and artifactId):
-   <img src="/docs/assets/plugin-tutorial/new-project.png" alt="New project IntelliJ" style="border-radius: 10px;" />
+Open your IDE and create a new Gradle project. You can use the following settings (change name, grouId and artifactId):
+<img src="/assets/plugin-tutorial/new-project.png" alt="New project IntelliJ" style="border-radius: 10px;" />
 
 ## Build Script Configuration
 
