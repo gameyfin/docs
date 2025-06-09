@@ -18,4 +18,4 @@ However, Gameyfin does separate the plugins into different trust levels (from mo
 - **Untrusted Plugins**: These plugins are signed, but the signature is invalid or not recognized by Gameyfin. They are considered untrusted and should not be used.
 
 Gameyfin will display the trust level of a plugin in the Admin UI, but it does not restrict you from using any plugins you wish to use.
-Also, plugins will only be started automatically after the installation if they are bundled with Gameyfin or signed by a trusted source.
+Also, plugins will only be started automatically after their installation if they are bundled with Gameyfin or signed by a trusted source.

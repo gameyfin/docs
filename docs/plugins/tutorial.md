@@ -174,12 +174,12 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
 
 3. **Config validation**: Let's take a look at how to validate the config values:
 
-     By default, Gameyfin will validate the config values on a basic level when the plugin is loaded:
+     By default, Gameyfin will perform the following basic validation checks on the plugin configuration:
 
      * Check if all required config values are present (either by using the admin provided value or the default as fallback).
      * Check if the config values are of the correct type (e.g., String, Integer, Enum, etc.).
    
-     If the verification fails, Gameyfin will not enable the plugin and will show error messages in the UI.
+     If the verification fails, Gameyfin will not start the plugin and will show error messages in the UI.
 
      If you want to add custom validation logic, you can override the `validateConfiguration` method in your plugin class:
      ```kotlin
