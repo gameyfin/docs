@@ -18,7 +18,7 @@ hide:
 ![Libraries](assets/screenshots/admin-libraries.png){ data-title="Flexible" data-description="Configure Gameyfin to fit your needs. Sensible defaults included." }
 
 ![Game](assets/screenshots/game.png){ data-title="Beautiful" data-description="Give your video game library the design it deserves." }
-![Plugins](assets/screenshots/admin-plugins.png){ data-title="Extendable" data-description="Use plugins to add new features to your instance." }
+![Plugins](assets/screenshots/admin-plugins.png){ data-title="Extendable" data-description="Use plugins to add new features to your personal instance." }
 
 </div>
 
