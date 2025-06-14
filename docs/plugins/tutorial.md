@@ -3,6 +3,11 @@ title: Plugin Development Tutorial
 description: Learn how to create Gameyfin plugins
 ---
 
+!!! example "Unstable Feature"
+
+    Gameyfin's plugin API is currently in an **unstable** state.  
+    Expect breaking changes until the release of `2.0.0` (probably even after that).
+
 # Plugin Development Tutorial
 
 In this tutorial, we will walk through the process of creating a plugin for Gameyfin.
@@ -15,7 +20,7 @@ Before you start developing plugins for Gameyfin, ensure you have the following 
 - Familiarity with Gradle build system
 - An IDE such as IntelliJ IDEA (recommended) or VS Code
 - Java Development Kit (JDK) 21 or higher installed on your machine
-- Gameyfin installed and running (see [Installation Guide](/docs/installation))
+- Gameyfin installed and running (see [Installation Guide](../installation/index.md))
 
 The tutorial will be written in Kotlin, but you can also use Java if you prefer.
 We will use Gradle as the build system, which is the standard for Gameyfin plugins.
@@ -99,7 +104,7 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
    ```
 ## Creating Your First Plugin
 
-1. **Manifest File**: Create a `MANIFEST.MF` file in `src/main/resources` with the following content (the content is explained [here](/docs/plugins#plugin-manifest)):
+1. **Manifest File**: Create a `MANIFEST.MF` file in `src/main/resources` with the following content (the content is explained [here](./info-for-devs.md#plugin-manifest)):
    ```
    Plugin-Version: 1.0.0
    Plugin-Class: de.grimsi.gameyfinplugins.TutorialPlugin

@@ -6,12 +6,13 @@ icon: material/package-down
 
 ## Docker (recommended)
 
-TBD
+Gameyfin v2 will be available as a Docker image, which is the recommended way to run Gameyfin.  
+More details coming soon.
 
 ## Unraid
 
-TBD
+TBD (not supported in beta)
 
 ## Manual Installation
 
-TBD
+TBD (not supported in beta)

@@ -17,7 +17,7 @@ hide:
 ![Home](assets/screenshots/home.png){ data-title="Simple" data-description="Gameyfin doesn't care where you purchased your games. Just point it to the folder and hit scan." }
 ![Libraries](assets/screenshots/admin-libraries.png){ data-title="Flexible" data-description="Configure Gameyfin to fit your needs. Sensible defaults included." }
 
-![Game](assets/screenshots/game.png){ data-title="Beautiful" data-description="Give your video game library the design it deserves." }
+![Game](assets/screenshots/game.png){ data-title="Beautiful" data-description="Give your video game library the presentation it deserves." }
 ![Plugins](assets/screenshots/admin-plugins.png){ data-title="Extendable" data-description="Use plugins to add new features to your personal instance." }
 
 </div>

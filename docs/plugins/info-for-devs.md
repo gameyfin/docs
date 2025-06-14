@@ -3,6 +3,11 @@ title: Information for Developers
 description: Specific information for developers who want to understand how to work with the plugin system
 ---
 
+!!! example "Unstable Feature"
+
+    Gameyfin's plugin API is currently in an **unstable** state.  
+    Expect breaking changes until the release of `2.0.0` (probably even after that).
+
 # How to create a Plugin
 
 The plugin system is based on [PF4J](https://github.com/pf4j/pf4j) which allows you to create plugins in Java or Kotlin.

@@ -90,8 +90,15 @@ nav:
     - index.md
   - "Installation":
     - installation/index.md
+    - installation/migration-from-v1.md
   - "Configuration":
     - configuration/index.md
+    - configuration/libraries.md
+    - configuration/users.md
+    - configuration/sso.md
+    - configuration/messages.md
+    - configuration/plugins.md
+    - configuration/logs.md
   - "Plugins":
     - plugins/index.md
     - plugins/security.md
