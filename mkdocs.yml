@@ -5,8 +5,8 @@ site_author: grimsi
 site_description: Documentation for Gameyfin v2, your video game manager.
 
 # Repository
-repo_name: gameyfin/v2
-repo_url: https://github.com/gameyfin/gameyfin/tree/v2
+repo_name: gameyfin
+repo_url: https://github.com/gameyfin/gameyfin
 
 # Copyright
 copyright: Copyright &copy; 2022 - <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/grimsi">grimsi</a> and <a href="https://github.com/gameyfin/gameyfin/graphs/contributors">contributors</a>
