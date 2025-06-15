@@ -11,7 +11,8 @@ description: Specific information for developers who want to understand how to w
 # How to create a Plugin
 
 The plugin system is based on [PF4J](https://github.com/pf4j/pf4j) which allows you to create plugins in Java or Kotlin.
-Depending on the type of plugin you want to create, you will need to implement the appropriate interfaces.
+Depending on the type of plugin you want to create, you will need to implement the appropriate interfaces.  
+The Gameyfin Plugin API is published as a Maven artifact on [Maven Central](https://central.sonatype.com/artifact/org.gameyfin/plugin-api), so you can easily include it in your project.
 
 For a quick start, you can follow the [tutorial](tutorial.md).
 

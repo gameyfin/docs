@@ -59,7 +59,7 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
      // ... other dependencies
      ksp("care.better.pf4j:pf4j-kotlin-symbol-processing:2.1.21-1.0.2") // match with your Kotlin version
            
-     compileOnly("de.grimsi.gameyfin:plugin-api:2.0.0") // match with your Gameyfin version
+     compileOnly("org.gameyfin:plugin-api:2.0.0.beta1") // match with your Gameyfin version
    }
    ```
 4. **Build Script**: Ensure your `build.gradle.kts` file is set up to build a JAR file containing your plugin code and resources:
@@ -107,8 +107,8 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
 1. **Manifest File**: Create a `MANIFEST.MF` file in `src/main/resources` with the following content (the content is explained [here](./info-for-devs.md#plugin-manifest)):
    ```
    Plugin-Version: 1.0.0
-   Plugin-Class: de.grimsi.gameyfinplugins.TutorialPlugin
-   Plugin-Id: de.grimsi.gameyfinplugins.helloworld
+   Plugin-Class: org.gameyfin.plugins.TutorialPlugin
+   Plugin-Id: org.gameyfin.plugins.helloworld
    Plugin-Name: Gameyfin Example Plugin
    Plugin-Description: Demonstrates how to implement a simple game metadata plugin.<br>
     Always returns a hardcoded game with the name "Hello World" and the original ID "hello-world-game".
@@ -275,10 +275,10 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
          * @param gameId This is the name of a file or folder that Gameyfin found in a game library.
          * @param maxResults The maximum number of results to return. You can return fewer results if you want.
          */
-        override fun fetchMetadata(gameId: String, maxResults: Int): List<GameMetadata> {
+        override fun fetchByTitle(gameTitle: String, maxResults: Int): List<GameMetadata> {
 
             // Log the gameId and maxResults for debugging purposes.
-            log.debug("HelloWorldMetadataProvider: Fetching metadata for gameId: {} with maxResults: {}", gameId, maxResults)
+            log.debug("HelloWorldMetadataProvider: Fetching metadata for gameTitle: {} with maxResults: {}", gameTitle, maxResults)
 
             // For demonstration purposes, we will return a hardcoded example result.
             val exampleResult = GameMetadata(
@@ -288,7 +288,24 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
 
             // Return a list containing the example result.
             return listOf(exampleResult)
-        } 
+        }
+        
+        /**
+         * Implement this method to provide game metadata by its unique identifier.
+         *
+         * The method receives an "id" which is usually the unique identifier of a video game from your data source.
+         * The task of your plugin is to match this id to a video game and return metadata about it.
+         * If you could not find any matches, return null.
+         *
+         * @param id The unique identifier of the game in the source your plugin implements.
+         * @return A GameMetadata object containing the metadata of the game, or null if no match was found.
+         */
+        override fun fetchById(id: String): GameMetadata? {
+            return GameMetadata(
+                title = "Hello World Game",
+                originalId = id
+            )
+        }
    }
    ```
    
