@@ -6,8 +6,7 @@ icon: material/package-down
 
 ## Docker (recommended)
 
-Gameyfin v2 will be available as a Docker image, which is the recommended way to run Gameyfin.  
-More details coming soon.
+See [Docker Installation](docker.md).
 
 ## Unraid
 

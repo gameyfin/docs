@@ -91,6 +91,8 @@ nav:
   - "Installation":
     - installation/index.md
     - installation/migration-from-v1.md
+    - installation/docker.md
+    - installation/getting-started.md
   - "Configuration":
     - configuration/index.md
     - configuration/libraries.md
