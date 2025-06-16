@@ -19,7 +19,7 @@ The Gameyfin Docker image is currently available on [Docker Hub](https://hub.doc
 You can use Docker Compose to run Gameyfin.
 Contrary to Gameyfin v1 almost no configuration via environment variables is required to run Gameyfin.  
 The only required environment variable is `APP_KEY`, which Gameyfin uses to encrypt sensitive data in the database.  
-The app key  must be a 16, 24 or 32 bit long Base64 encoded string, which can be generated using the following command:
+The app key  must be a 16, 24 or 32 byte long Base64 encoded string, which can be generated using the following command:
 
 ```bash
 openssl rand -base64 32
