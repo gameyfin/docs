@@ -25,6 +25,8 @@ The app key  must be a 16, 24 or 32 byte long Base64 encoded string, which can b
 openssl rand -base64 32
 ```
 
+If you are using Gameyfin with a reverse proxy, you should also set the `APP_URL` environment variable to the URL of your Gameyfin instance (e.g. `https://gameyfin.example.com`).
+
 The volumes for the database, data, and logs should be mounted to the host system to persist data across container restarts.  
 Additionally, you have to mount your library folder(s) to the container, so Gameyfin can access your media files.  
 Finally if you want to use the included torrent plugin, you need to expose the necessary ports (6969 for the tracker and 6881 for the torrent client).
@@ -35,12 +37,14 @@ You can use the following `docker-compose.yml` file to run Gameyfin:
 ```yaml title="docker-compose.yml"
 services:
   gameyfin:
-    image: gameyfin/app:2.0.0.beta2 # Replace with the latest version tag from Docker Hub
+    image: gameyfin/app:2.0.0.beta3 # Replace with the latest version tag from Docker Hub
     container_name: gameyfin
     restart: unless-stopped
     environment:
       # Generate a new APP_KEY using the command `openssl rand -base64 32` or similar.
       APP_KEY: <you app key here>
+      # (optional) Set the URL of your Gameyfin instance if you are using a reverse proxy.
+      #  APP_URL: https://gameyfin.example.com # Change this to your actual URL if needed
     volumes:
       - "./db:/opt/gameyfin/db"
       - "./data:/opt/gameyfin/data"
