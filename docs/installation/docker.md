@@ -17,7 +17,11 @@ The Gameyfin Docker image is currently available on [Docker Hub](https://hub.doc
 
 ## Docker Compose
 You can use Docker Compose to run Gameyfin.
+
+#### Environment Variables
 Contrary to Gameyfin v1 almost no configuration via environment variables is required to run Gameyfin.  
+
+##### APP_KEY
 The only required environment variable is `APP_KEY`, which Gameyfin uses to encrypt sensitive data in the database.  
 The app key  must be a 16, 24 or 32 byte long Base64 encoded string, which can be generated using the following command:
 
@@ -25,8 +29,13 @@ The app key  must be a 16, 24 or 32 byte long Base64 encoded string, which can b
 openssl rand -base64 32
 ```
 
+##### APP_URL
 If you are using Gameyfin with a reverse proxy, you should also set the `APP_URL` environment variable to the URL of your Gameyfin instance (e.g. `https://gameyfin.example.com`).
 
+##### PUID & PGID
+If you want to run Gameyfin with a specific user and group ID, you can set the `PUID` and `PGID` environment variables.
+
+#### Volumes and Ports
 The volumes for the database, data, and logs should be mounted to the host system to persist data across container restarts.  
 Additionally, you have to mount your library folder(s) to the container, so Gameyfin can access your media files.  
 Finally if you want to use the included torrent plugin, you need to expose the necessary ports (6969 for the tracker and 6881 for the torrent client).
@@ -43,8 +52,13 @@ services:
     environment:
       # Generate a new APP_KEY using the command `openssl rand -base64 32` or similar.
       APP_KEY: <you app key here>
+      
       # (optional) Set the URL of your Gameyfin instance if you are using a reverse proxy.
       #  APP_URL: https://gameyfin.example.com # Change this to your actual URL if needed
+      
+      # (optional) Set the user and group ID to run Gameyfin with a specific user.
+      # PUID: 1000 # Change this to your user ID if needed
+      # PGID: 1000 # Change this to your group ID if needed
     volumes:
       - "./db:/opt/gameyfin/db"
       - "./data:/opt/gameyfin/data"
