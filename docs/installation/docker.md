@@ -41,6 +41,7 @@ Additionally, you have to mount your library folder(s) to the container, so Game
 Finally if you want to use the included torrent plugin, you need to expose the necessary ports (6969 for the tracker and 6881 for the torrent client).
 The ports can be changed if needed (either by mapping to another port on your host or by changing the plugin configuration), but the default ports are recommended for compatibility with other applications.
 
+#### Compose File
 You can use the following `docker-compose.yml` file to run Gameyfin:
 
 ```yaml title="docker-compose.yml"
