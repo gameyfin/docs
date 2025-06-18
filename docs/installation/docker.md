@@ -83,7 +83,7 @@ Observe the logs to ensure that Gameyfin starts correctly:
 docker-compose logs -f gameyfin
 ```
 The logs should contain the message `Loaded plugins: <list of plugins>` when the application is ready.  
-You should now be able to access Gameyfin at `http://<docker-host-ip-or-hostname>:8080` in your web browser.
+You should now be able to access Gameyfin at `http://<docker-host-ip-or-hostname>:8080` (or `APP_URL` if it's behind a reverse proxy) in your web browser.
 
 ## First steps
 
