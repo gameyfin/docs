@@ -47,7 +47,7 @@ You can use the following `docker-compose.yml` file to run Gameyfin:
 ```yaml title="docker-compose.yml"
 services:
   gameyfin:
-    image: gameyfin/app:2.0.0.beta3 # Replace with the latest version tag from Docker Hub
+    image: grimsi/gameyfin:2.0.0.beta3 # Replace with the latest version tag from Docker Hub
     container_name: gameyfin
     restart: unless-stopped
     environment:
