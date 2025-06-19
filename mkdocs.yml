@@ -106,3 +106,5 @@ nav:
     - plugins/security.md
     - plugins/info-for-devs.md
     - plugins/tutorial.md
+  - "FAQ":
+    - faq/index.md

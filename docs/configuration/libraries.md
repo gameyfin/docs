@@ -18,6 +18,7 @@ This option allows Gameyfin to scan empty directories in your game libraries. Th
 
 ### Minimum ratio for title matching
 Default: `90`  
+Range: `0-100`  
 This option filters the results of the title matching algorithm. If the ratio is below this value, the title will not be matched.  
 Lowering this value may result in more matches, but it may also result in more false matches.
 
