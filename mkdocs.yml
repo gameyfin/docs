@@ -101,6 +101,10 @@ nav:
     - configuration/messages.md
     - configuration/plugins.md
     - configuration/logs.md
+  - "Guides":
+      - guides/index.md
+      - "SSO":
+        - guides/sso/authentik.md
   - "Plugins":
     - plugins/index.md
     - plugins/security.md
