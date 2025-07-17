@@ -34,8 +34,9 @@ Then go to `Customization > Property Mappings > Create` and create a new mapping
    if ak_is_group_member(request.user, name="<your admin group name>"):
      return { "roles": ["GAMEYFIN_ADMIN"] }
    ```
-  
-Users that are not in either group will automatically be assigned to "User" role.
+
+Add your users to their respective groups in Authentik.
+Users that are not in either group will automatically be assigned the "User" role.
 
 ## Configure Gameyfin
 
