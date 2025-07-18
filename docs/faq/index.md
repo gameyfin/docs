@@ -17,6 +17,10 @@ Gameyfin requires access to the filesystem to scan your game libraries and to re
 If you run Gameyfin as a non-root user, you need to make sure that the user has read access to the game files and directories.  
 You can also [configure the user and group](../installation/docker.md#puid-pgid) that Gameyfin should run as in the `docker-compose.yml` file.
 
+## Library scan progress and/or application logs are not shown in the UI
+
+Gameyfin uses websockets extensively to send real-time updates to the UI. If you don't see the progress or logs in the UI, check if your reverse proxy is configured correctly to support websockets and that the websocket connection is not blocked by your browser or network settings.
+
 ## How does Gameyfin match my video games?
 
 The matching algorithm grew a bit more complex compared to the v1 version. Thanks to the new plugin system, Gameyfin can now match games using various sources.  
