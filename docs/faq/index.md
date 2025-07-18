@@ -60,7 +60,15 @@ There are several ways to improve the matching accuracy:
 ## How will the matching process change in the future?
 
 The matching process is still evolving and will continue to improve over time.  
-Jellyfin for example has an [interesting feature](https://jellyfin.org/docs/general/server/media/movies/#metadata-providers) that allows users to include the ID of a game in the file name, which can be used to match the game more accurately.  
-
+Jellyfin for example has an [interesting feature](https://jellyfin.org/docs/general/server/media/movies/#metadata-providers) that allows users to include the ID of a game in the file name, which can be used to match the game more accurately.
 
 Again, I am always open to suggestions and feedback, so if you have any ideas on how to improve the matching process, please open an issue on [GitHub](https://github.com/gameyfin/gameyfin/issues).
+
+## What's the difference between "quick scan" and "full scan"?
+
+The "quick scan" only scans for new games while the "full scan" also updates existing games.
+
+This means that the "quick scan" will only add new games to your library, while the "full scan" will also update the metadata of existing games.
+Fields that have been modified by a user will **not** be overwritten by the "full scan", so you can safely run it without losing your changes.
+
+If you want to reset the metadata of a game, you can do so by deleting the game from your library (and your unmatched paths) and then running a scan (either type) again.
