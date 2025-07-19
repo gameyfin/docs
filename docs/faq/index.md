@@ -71,4 +71,4 @@ The "quick scan" only scans for new games while the "full scan" also updates exi
 This means that the "quick scan" will only add new games to your library, while the "full scan" will also update the metadata of existing games.
 Fields that have been modified by a user will **not** be overwritten by the "full scan", so you can safely run it without losing your changes.
 
-If you want to reset the metadata of a game, you can do so by deleting the game from your library (and your unmatched paths) and then running a scan (either type) again.
+If you want to reset the metadata of a game, you can do so by using the "Search for metadata" button and selecting a search result. This process will update the metadata of the game with the latest data and will overwrite any changes made by users.
