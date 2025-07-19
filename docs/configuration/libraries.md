@@ -17,13 +17,13 @@ Default: `false`
 This option allows Gameyfin to scan empty directories in your game libraries. This is useful if you want to keep track of directories that do not contain any games, but it may slow down the scanning process.
 
 ### Extract title from file names using regex
-Default: `false`
+Default: `false`  
 This option allows Gameyfin to extract the title of a game from its file name using a regular expression.
 
 ### Regex to extract title from file names
-Default: `^[^\[]+`
-This option allows you to specify the regular expression used to extract the title from file names.
-The default regex will extract everything except text in square brackets (including the brackets), e.g. `Game Title [2025] [Action]` will become `Game Title`.
+Default: `^[^\[]+`  
+This option allows you to specify the regular expression used to extract the title from file names.  
+The default regex will extract everything except text in square brackets (including the brackets), e.g. `Game Title [2025] [Action]` will become `Game Title`.  
 To test your custom regex, you can use the websites such as https://regexr.com/.
 
 ### Minimum ratio for title matching
