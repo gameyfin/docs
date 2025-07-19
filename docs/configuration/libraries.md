@@ -24,7 +24,7 @@ This option allows Gameyfin to extract the title of a game from its file name us
 Default: `^[^\[]+`  
 This option allows you to specify the regular expression used to extract the title from file names.  
 The default regex will extract everything except text in square brackets (including the brackets), e.g. `Game Title [2025] [Action]` will become `Game Title`.  
-To test your custom regex you can use the websites such as [https://regexr.com/](https://regexr.com/).
+To test your custom regex you can use websites such as [https://regexr.com/](https://regexr.com/).
 
 ### Minimum ratio for title matching
 Default: `90`  
