@@ -16,6 +16,16 @@ This option enables automatic scanning of game libraries using file system watch
 Default: `false`  
 This option allows Gameyfin to scan empty directories in your game libraries. This is useful if you want to keep track of directories that do not contain any games, but it may slow down the scanning process.
 
+### Extract title from file names using regex
+Default: `false`  
+This option allows Gameyfin to extract the title of a game from its file name using a regular expression.
+
+### Regex to extract title from file names
+Default: `^[^\[]+`  
+This option allows you to specify the regular expression used to extract the title from file names.  
+The default regex will extract everything until the first opening square bracket, e.g. `Game Title [2025] [Action]` will become `Game Title`.  
+To test your custom regex you can use websites such as [https://regexr.com/](https://regexr.com/).
+
 ### Minimum ratio for title matching
 Default: `90`  
 Range: `0-100`  
@@ -34,9 +44,9 @@ This option enables periodic refresh of video game metadata.
 Gameyfin will automatically update the metadata of your games based on the configured sources.
 
 ### Schedule for periodic metadata refresh
-Default: `0 0 * * 0` (every Sunday at midnight)  
+Default: `@daily`  
 This option allows you to configure the schedule for periodic metadata refresh.  
-The format is a cron expression.
+The format is a cron expression in Spring cron format ([documentation](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String))).
 
 ## Libraries
 This section allows you to manage your game libraries in Gameyfin.
