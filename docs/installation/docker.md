@@ -42,7 +42,7 @@ You can use the following `docker-compose.yml` file to run Gameyfin:
 ```yaml title="docker-compose.yml"
 services:
   gameyfin:
-    image: ghcr.io/gameyfin/app:2
+    image: ghcr.io/gameyfin/gameyfin:2
     container_name: gameyfin
     restart: unless-stopped
     environment:
