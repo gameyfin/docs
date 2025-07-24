@@ -4,11 +4,6 @@ description: How to install Gameyfin using Docker
 icon: material/docker
 ---
 
-!!! example "Beta release"
-
-    During the beta phase, Gameyfin is only available as a Docker image.
-    This is a temporary measure until the stable release, after which a other installation methods will be provided.
-
 # Docker Installation
 
 Docker is the recommended way to run Gameyfin, as it simplifies the installation process and reduces the likelihood of issues related to dependencies and environment configuration.
@@ -47,7 +42,7 @@ You can use the following `docker-compose.yml` file to run Gameyfin:
 ```yaml title="docker-compose.yml"
 services:
   gameyfin:
-    image: grimsi/gameyfin:2.0.0.beta3 # Replace with the latest version tag from Docker Hub
+    image: ghcr.io/gameyfin/app:2
     container_name: gameyfin
     restart: unless-stopped
     environment:
