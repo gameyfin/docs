@@ -8,3 +8,6 @@ icon: material/file-document
 
 ### Authentik
 See [Authentik SSO Guide](sso/authentik.md).
+
+### Pocket-ID
+See [Pocket-ID SSO Guide](sso/pocketid.md).

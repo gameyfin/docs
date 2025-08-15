@@ -13,7 +13,7 @@ Go to `Applications > Applications > Create with Provider` and follow these step
 2. **Choose a Provider**: `OAuth2/OpenID Provider`
 3. **Configure Provider**:
      - Client type: `Confidential`
-     - Redirect URIs: `http(s)://<your-gameyfin-domain>/login/oauth2/code/oidc` (or leave empty for automatic detection)
+     - Redirect URIs: `https://<your-gameyfin-domain>/login/oauth2/code/oidc` (or leave empty for automatic detection)
 4. **Configure Bindings**: Bind policies to the application as needed.
 5. **Review and Submit Application**: Your settings should look similar to this:
    ![Authentik Application Configuration](../../assets/guides/sso/authentik/authentik-application.png)
