@@ -24,6 +24,7 @@ Create two groups in Pocket-ID (`User Groups > Add Group`), one for superadmins 
 - **Name**: Use the generated one or change it if you want.
 
 Click `Save` and then add a custom claim to each group (`Custom Claims > Add custom claim`):
+
 - **Key**: `roles`
 - **Value**: For the superadmin group use `["GAMEYFIN_SUPERADMIN"]`, and for the admin group use `["GAMEYFIN_ADMIN"]`.
 
