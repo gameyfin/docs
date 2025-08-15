@@ -10,8 +10,8 @@ See [Docker Installation](docker.md).
 
 ## Unraid
 
-TBD (not supported in beta)
+Not officially supported yet.
 
 ## Manual Installation
 
-TBD (not supported in beta)
+Not officially supported yet.

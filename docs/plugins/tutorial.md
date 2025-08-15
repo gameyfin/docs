@@ -59,7 +59,7 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
      // ... other dependencies
      ksp("care.better.pf4j:pf4j-kotlin-symbol-processing:2.1.21-1.0.2") // match with your Kotlin version
            
-     compileOnly("org.gameyfin:plugin-api:2.0.0.beta1") // match with your Gameyfin version
+     compileOnly("org.gameyfin:plugin-api:2.0.0") // match with your Gameyfin version
    }
    ```
 4. **Build Script**: Ensure your `build.gradle.kts` file is set up to build a JAR file containing your plugin code and resources:

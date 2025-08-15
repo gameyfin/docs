@@ -4,11 +4,6 @@ description: Gameyfin Installation Guide
 icon: material/help-circle
 ---
 
-!!! example "Beta release"
-
-    The matching algorithm is the heart of Gameyfin and it is not perfect yet.
-    Feedback is always welcome, so if you have any issues with the matching process, please open an issue on [GitHub](https://github.com/gameyfin/gameyfin/issues).
-
 # Frequently Asked Questions
 
 ## Gameyfin doesn't start because of permission issues
