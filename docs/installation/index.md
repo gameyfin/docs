@@ -10,7 +10,7 @@ See [Docker Installation](docker.md).
 
 ## Unraid
 
-Not officially supported yet.
+See [Unraid Installation](unraid.md).
 
 ## Manual Installation
 

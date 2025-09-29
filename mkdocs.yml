@@ -92,6 +92,7 @@ nav:
     - installation/index.md
     - installation/migration-from-v1.md
     - installation/docker.md
+    - installation/unraid.md
     - installation/getting-started.md
   - "Configuration":
     - configuration/index.md
@@ -105,6 +106,7 @@ nav:
       - guides/index.md
       - "SSO":
         - guides/sso/authentik.md
+        - guides/sso/pocketid.md
   - "Plugins":
     - plugins/index.md
     - plugins/security.md

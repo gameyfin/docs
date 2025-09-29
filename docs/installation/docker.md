@@ -1,7 +1,7 @@
 ---
 title: Docker Installation
 description: How to install Gameyfin using Docker
-icon: material/docker
+icon: simple/docker
 ---
 
 # Docker Installation
