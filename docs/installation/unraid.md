@@ -30,6 +30,7 @@ Gameyfin has an official Unraid app available in the Community Applications plug
    - (Optional) Set the `PUID` and `PGID` environment variables to run Gameyfin with a specific user and group ID.
    - Map the necessary volumes for the database, data, logs, and your library folder(s).
    - (Optional) Expose the necessary ports if you want to use the included torrent plugin (6969 for the tracker and 6881 for the torrent client).
+   - (Optional) Adjust the paths for the `db`, `data` and `logs` mounts if you want to store them in a different location.
 3. Click on "Apply" to install and start the Gameyfin container.
 
 
