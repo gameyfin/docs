@@ -12,15 +12,8 @@ Gameyfin has an official Unraid app available in the Community Applications plug
 
 ### Installation from Community Applications
 1. Open the Community Applications plugin in Unraid.
-2. Search for "Gameyfin".
-3. Click on the "gameyfin" app by "grimsi".
-
-!!! note
-
-    There is another app called "gameyfin" which is for Gameyfin v1 and should not be used for Gameyfin v2.  
-    **Please use the official app to be able to get support.**  
-    
-    ![img.png](../assets/installation/unraid-app-store.png)
+2. Search for "Gameyfin" (use the offical app).
+![img.png](../assets/installation/unraid-app-store.png)
 
 ### Configure and Install the App
 1. Click on "Install" to open the configuration page.
