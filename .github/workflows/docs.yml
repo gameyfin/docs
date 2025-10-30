@@ -11,21 +11,55 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Configure Git Credentials
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: 🔧 Configure Git Credentials
         run: |
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
+
+      - name: 🔄 Update submodules
+        id: submodule-update
+        run: |
+          git submodule update --remote --merge
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: 💾 Commit and push submodule updates
+        if: steps.submodule-update.outputs.changes == 'true'
+        run: |
+          git add .
+          git commit -m "🤖 Update submodules [skip ci]"
+          git push
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4
+
+      - name: 📅 Generate cache ID
+        run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
+
+      - name: 💾 Cache dependencies
+        uses: actions/cache@v4
         with:
           key: mkdocs-material-${{ env.cache_id }}
           path: .cache
           restore-keys: |
             mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-glightbox
-      - run: mkdocs gh-deploy --force
+
+      - name: 📦 Install MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: 📦 Install MkDocs Glightbox
+        run: pip install mkdocs-glightbox
+
+      - name: 🚀 Deploy to GitHub Pages
+        run: mkdocs gh-deploy --force
