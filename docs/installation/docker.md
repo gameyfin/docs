@@ -40,31 +40,7 @@ The ports can be changed if needed (either by mapping to another port on your ho
 You can use the following `docker-compose.yml` file to run Gameyfin:
 
 ```yaml title="docker-compose.yml"
-services:
-  gameyfin:
-    image: ghcr.io/gameyfin/gameyfin:2
-    container_name: gameyfin
-    restart: unless-stopped
-    environment:
-      # Generate a new APP_KEY using the command `openssl rand -base64 32` or similar.
-      APP_KEY: <you app key here>
-      
-      # (optional) Set the URL of your Gameyfin instance if you are using a reverse proxy.
-      #  APP_URL: https://gameyfin.example.com # Change this to your actual URL if needed
-      
-      # (optional) Set the user and group ID to run Gameyfin with a specific user.
-      # PUID: 1000 # Change this to your user ID if needed
-      # PGID: 1000 # Change this to your group ID if needed
-    volumes:
-      - "./db:/opt/gameyfin/db"
-      - "./data:/opt/gameyfin/data"
-      - "./logs:/opt/gameyfin/logs"
-      - <mount your library folder(s) here>
-    ports:
-      - "8080:8080"
-      # If you plan to use the included torrent plugin, uncomment the following lines (optional):
-      # - "6969:6969"
-      # - "6881:6881"
+--8<-- "external/gameyfin/docker/docker-compose.example.yml"
 ```
 
 Start Gameyfin using Docker Compose with the following command:
