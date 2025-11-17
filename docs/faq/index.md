@@ -67,3 +67,8 @@ This means that the "quick scan" will only add new games to your library, while 
 Fields that have been modified by a user will **not** be overwritten by the "full scan", so you can safely run it without losing your changes.
 
 If you want to reset the metadata of a game, you can do so by using the "Search for metadata" button and selecting a search result. This process will update the metadata of the game with the latest data and will overwrite any changes made by users.
+
+## What are "ignored paths" and how do they work?
+There are two types of ignred paths: Ones added automatically during a library scan and ones added manually by the user.
+1. **Automatically ignored paths**: During a library scan, Gameyfin may encounter files or directories that it cannot match to any game. These paths are automatically added to the ignored paths list.
+2. **Manually ignored paths**: Users can also manually add paths to the ignored paths list by removing games from the library. This is useful if you have files or directories that you know are not games, and you want to prevent Gameyfin from trying to match them in future scans.
