@@ -3,37 +3,37 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Connect Gameyfin with Authentik for Single Sign-On (SSO)">
+        <meta name="description" content="The official Gameyfin blog with news, updates, and articles.">
       
       
         <meta name="author" content="grimsi">
       
       
-        <link rel="canonical" href="https://gameyfin.org/guides/sso/authentik/">
+        <link rel="canonical" href="https://gameyfin.org/blog/">
       
       
-        <link rel="prev" href="../../">
+        <link rel="prev" href="../faq/">
       
       
-        <link rel="next" href="../pocketid/">
+        <link rel="next" href="category/foss/">
       
       
         
       
       
-      <link rel="icon" href="../../../assets/logo.svg">
+      <link rel="icon" href="../assets/logo.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Authentik - Gameyfin</title>
+        <title>Blog - Gameyfin</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -52,13 +52,13 @@
       
     
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
-  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#create-an-application-in-authentik" class="md-skip">
+        <a href="#blog" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +101,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Gameyfin" class="md-header__button md-logo" aria-label="Gameyfin" data-md-component="logo">
+    <a href=".." title="Gameyfin" class="md-header__button md-logo" aria-label="Gameyfin" data-md-component="logo">
       
-  <img src="../../../assets/logo.svg" alt="logo">
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Authentik
+              Blog
             
           </span>
         </div>
@@ -245,7 +245,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../.." class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
   
@@ -269,7 +269,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../installation/" class="md-tabs__link">
+        <a href="../installation/" class="md-tabs__link">
           
   
   
@@ -293,7 +293,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../configuration/" class="md-tabs__link">
+        <a href="../configuration/" class="md-tabs__link">
           
   
   
@@ -313,13 +313,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../guides/" class="md-tabs__link">
           
   
   
@@ -343,7 +341,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../plugins/" class="md-tabs__link">
+        <a href="../plugins/" class="md-tabs__link">
           
   
   
@@ -367,7 +365,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../../faq/" class="md-tabs__link">
+        <a href="../faq/" class="md-tabs__link">
           
   
   
@@ -387,11 +385,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../../blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -429,9 +429,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Gameyfin" class="md-nav__button md-logo" aria-label="Gameyfin" data-md-component="logo">
+    <a href=".." title="Gameyfin" class="md-nav__button md-logo" aria-label="Gameyfin" data-md-component="logo">
       
-  <img src="../../../assets/logo.svg" alt="logo">
+  <img src="../assets/logo.svg" alt="logo">
 
     </a>
     Gameyfin
@@ -481,7 +481,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../.." class="md-nav__link ">
+            <a href=".." class="md-nav__link ">
               
   
   
@@ -560,7 +560,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../installation/" class="md-nav__link ">
+            <a href="../installation/" class="md-nav__link ">
               
   
   
@@ -606,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/migration-from-v1/" class="md-nav__link">
+      <a href="../installation/migration-from-v1/" class="md-nav__link">
         
   
   
@@ -636,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/docker/" class="md-nav__link">
+      <a href="../installation/docker/" class="md-nav__link">
         
   
   
@@ -666,7 +666,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/unraid/" class="md-nav__link">
+      <a href="../installation/unraid/" class="md-nav__link">
         
   
   
@@ -696,7 +696,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../installation/getting-started/" class="md-nav__link">
+      <a href="../installation/getting-started/" class="md-nav__link">
         
   
   
@@ -766,7 +766,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../configuration/" class="md-nav__link ">
+            <a href="../configuration/" class="md-nav__link ">
               
   
   
@@ -812,7 +812,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/libraries/" class="md-nav__link">
+      <a href="../configuration/libraries/" class="md-nav__link">
         
   
   
@@ -840,7 +840,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/users/" class="md-nav__link">
+      <a href="../configuration/users/" class="md-nav__link">
         
   
   
@@ -868,7 +868,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/sso/" class="md-nav__link">
+      <a href="../configuration/sso/" class="md-nav__link">
         
   
   
@@ -896,7 +896,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/messages/" class="md-nav__link">
+      <a href="../configuration/messages/" class="md-nav__link">
         
   
   
@@ -924,7 +924,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/plugins/" class="md-nav__link">
+      <a href="../configuration/plugins/" class="md-nav__link">
         
   
   
@@ -952,7 +952,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../configuration/logs/" class="md-nav__link">
+      <a href="../configuration/logs/" class="md-nav__link">
         
   
   
@@ -984,8 +984,6 @@
       
   
   
-    
-  
   
   
     
@@ -1001,23 +999,20 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
+            <a href="../guides/" class="md-nav__link ">
               
   
   
@@ -1037,13 +1032,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1060,10 +1055,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1077,20 +1070,17 @@
       
       
         
-          
-          
-        
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2">
         
           
-          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
             
   
   
@@ -1108,7 +1098,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1123,35 +1113,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Authentik
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../guides/sso/authentik/" class="md-nav__link">
         
   
   
@@ -1167,57 +1132,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-an-application-in-authentik" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create an application in Authentik
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-property-mapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create a property mapping
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-gameyfin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure Gameyfin
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1230,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pocketid/" class="md-nav__link">
+      <a href="../guides/sso/pocketid/" class="md-nav__link">
         
   
   
@@ -1302,7 +1216,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../plugins/" class="md-nav__link ">
+            <a href="../plugins/" class="md-nav__link ">
               
   
   
@@ -1348,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../plugins/security/" class="md-nav__link">
+      <a href="../plugins/security/" class="md-nav__link">
         
   
   
@@ -1376,7 +1290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../plugins/info-for-devs/" class="md-nav__link">
+      <a href="../plugins/info-for-devs/" class="md-nav__link">
         
   
   
@@ -1404,7 +1318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../plugins/tutorial/" class="md-nav__link">
+      <a href="../plugins/tutorial/" class="md-nav__link">
         
   
   
@@ -1462,7 +1376,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../faq/" class="md-nav__link ">
+            <a href="../faq/" class="md-nav__link ">
               
   
   
@@ -1507,6 +1421,8 @@
       
   
   
+    
+  
   
   
     
@@ -1524,20 +1440,23 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../blog/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1557,13 +1476,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_7" id="__nav_7_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1593,17 +1512,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2">
         
           
-          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="">
             
   
   
@@ -1641,7 +1563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/archive/2025/" class="md-nav__link">
+      <a href="archive/2025/" class="md-nav__link">
         
   
   
@@ -1687,17 +1609,20 @@
       
       
         
+          
+          
+        
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
         <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3">
         
           
-          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="">
             
   
   
@@ -1735,7 +1660,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../blog/category/foss/" class="md-nav__link">
+      <a href="category/foss/" class="md-nav__link">
         
   
   
@@ -1788,47 +1713,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-an-application-in-authentik" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create an application in Authentik
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#create-a-property-mapping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create a property mapping
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configure-gameyfin" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configure Gameyfin
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1837,74 +1723,76 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  
-  
-
-
-  <h1>Authentik</h1>
-
-<h2 id="create-an-application-in-authentik">Create an application in Authentik</h2>
-<p>Create a new application in Authentik to enable Single Sign-On (SSO) for Gameyfin.</p>
-<p>Go to <code>Applications &gt; Applications &gt; Create with Provider</code> and follow these steps:</p>
-<ol>
-<li><strong>Application</strong>: Fill out to your liking.</li>
-<li><strong>Choose a Provider</strong>: <code>OAuth2/OpenID Provider</code></li>
-<li><strong>Configure Provider</strong>:<ul>
-<li>Client type: <code>Confidential</code></li>
-<li>Redirect URIs: <code>https://&lt;your-gameyfin-domain&gt;/login/oauth2/code/oidc</code> (or leave empty for automatic detection)</li>
-</ul>
-</li>
-<li><strong>Configure Bindings</strong>: Bind policies to the application as needed.</li>
-<li><strong>Review and Submit Application</strong>: Your settings should look similar to this:
-   <a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/guides/sso/authentik/authentik-application.png" data-desc-position="bottom"><img alt="Authentik Application Configuration" src="../../../assets/guides/sso/authentik/authentik-application.png"></a></li>
-</ol>
-<h2 id="create-a-property-mapping">Create a property mapping</h2>
-<p>Gameyfin is able to read the users roles from SSO. To do this, you need to create groups and a property mapping in Authentik.</p>
-<p>First create two groups in Authentik (<code>Directory &gt; Groups &gt; Create</code>), one for superadmins and one for admins.<br>
-Then go to <code>Customization &gt; Property Mappings &gt; Create</code> and create a new mapping with the following settings:</p>
-<ul>
-<li><strong>Scope name</strong>: <code>profile</code></li>
-<li><strong>Expression</strong>: Fill out the placeholders with the groups you created above:
-   <div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">if</span> <span class="n">ak_is_group_member</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"&lt;your superadmin group name&gt;"</span><span class="p">):</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>  <span class="k">return</span> <span class="p">{</span> <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"GAMEYFIN_SUPERADMIN"</span><span class="p">]</span> <span class="p">}</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">if</span> <span class="n">ak_is_group_member</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"&lt;your admin group name&gt;"</span><span class="p">):</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>  <span class="k">return</span> <span class="p">{</span> <span class="s2">"roles"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"GAMEYFIN_ADMIN"</span><span class="p">]</span> <span class="p">}</span>
-</span></code></pre></div></li>
-</ul>
-<p>Add your users to their respective groups in Authentik.
-Users that are not in either group will automatically be assigned the "User" role.</p>
-<h2 id="configure-gameyfin">Configure Gameyfin</h2>
-<p>Go to Gameyfin's SSO settings page (<code>Administration &gt; SSO</code>), enable SSO and fill out the SSO provider configuration with the values from Authentik.
-You can use "Auto-populate" to fill most the values automatically, or copy them manually from the Authentik application you created earlier.</p>
-<p><em>Hint: "Auto-populate" will only work if Gameyfin and Authentik are hosted under the same domain or if you have configured a CORS policy for Authentik that allows calls from your Gameyfin domain. This is not an issue of Gameyfin but rather a security measure implemented by Authentik.</em></p>
-<p>Restart Gameyfin to apply the changes.</p>
-<p><em>Hint: If there is a problem with your SSO configuration, and you can't log in, simply append <code>?direct=1</code> to the URL to bypass SSO and login with your username and password.</em></p>
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-                
-              </article>
-            </div>
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        <h1 id="blog">Blog</h1>
+      </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://avatars.githubusercontent.com/u/9295182?v=4" alt="Simon Grimme">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-12-22 00:00:00+00:00">December 22, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/foss/" class="md-meta__link">FOSS</a></li>
+        
+        
           
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="why-gameyfin-is-foss-the-risks-of-source-available-software-and-how-you-can-support-open-alternatives"><a class="toclink" href="2025/12/22/why-gameyfin-is-foss/">Why Gameyfin is FOSS: The Risks of Source-Available Software and How You Can Support Open Alternatives</a></h2>
+<p>When I started developing Gameyfin, I made a deliberate choice to release it as <a href="https://github.com/gameyfin/gameyfin/blob/main/LICENSE.md">Free and Open Source Software (FOSS) under the AGPLv3 license</a>. This wasn't just a technical decision - it was a statement about what I believe software should be: transparent, user-controlled, and resistant to what Cory Doctorow calls "<a href="https://en.wikipedia.org/wiki/Enshittification">enshittification</a>".
+In this post, I want to explain why FOSS matters, especially for self-hosted tools like Gameyfin, and why I think users should be cautious about source-available alternatives. </p>
+
+    
+      <nav class="md-post__action">
+        <a href="2025/12/22/why-gameyfin-is-foss/">
+          Continue reading
+        </a>
+      </nav>
+    
+    
+  </div>
+</article>
+      
+      
+        
+          
+
+
+
+<nav class="md-pagination">
+  
+</nav>
+        
+      
+    </div>
+  </div>
+
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
@@ -1918,7 +1806,7 @@ You can use "Auto-populate" to fill most the values automatically, or copy them 
       <nav class="md-footer__inner md-grid" aria-label="Footer">
         
           
-          <a href="../../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Guides">
+          <a href="../faq/" class="md-footer__link md-footer__link--prev" aria-label="Previous: FAQ">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
@@ -1928,20 +1816,20 @@ You can use "Auto-populate" to fill most the values automatically, or copy them 
                 Previous
               </span>
               <div class="md-ellipsis">
-                Guides
+                FAQ
               </div>
             </div>
           </a>
         
         
           
-          <a href="../pocketid/" class="md-footer__link md-footer__link--next" aria-label="Next: Pocket-ID">
+          <a href="category/foss/" class="md-footer__link md-footer__link--next" aria-label="Next: FOSS">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Pocket-ID
+                FOSS
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -2020,10 +1908,10 @@ You can use "Auto-populate" to fill most the values automatically, or copy them 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.footer", "navigation.tabs", "navigation.sections", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.select"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   
