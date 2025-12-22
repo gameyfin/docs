@@ -9,7 +9,7 @@ hide:
 ---
 <div style="text-align: center">
     <h1 style="margin-bottom: 0">Manage your video games.</h1>
-    <h4 style="margin-top: 0; font-weight: normal; color: gray">simple / fast / <a href="https://github.com/gameyfin/gameyfin/blob/main/LICENSE.md" target="_blank">FOSS</a></h4>
+    <h4 style="margin-top: 0; font-weight: normal; color: gray">simple / fast / <a href="https://gameyfin.org/blog/2025/12/22/why-gameyfin-is-foss/" target="_blank">FOSS</a></h4>
 </div>
 
 <div class="grid" markdown>
