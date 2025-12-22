@@ -23,10 +23,3 @@ hide:
 </div>
 
 <small style="text-align: center; margin-top: 50px; display: block;">Note: All video games depicted on this site are for demonstration purposes only. Gameyfin does not endorse or support piracy. Use with appropriately licensed video games only.</small>
-
-
-<style>
-  .md-header__source {
-    display: none;
-  }
-</style>

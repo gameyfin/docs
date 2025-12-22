@@ -51,6 +51,7 @@ theme:
 plugins:
   - search
   - glightbox
+  - blog
 
 # Additional configuration
 # Additional configuration
@@ -114,3 +115,5 @@ nav:
     - plugins/tutorial.md
   - "FAQ":
     - faq/index.md
+  - "Blog":
+      - blog/index.md
