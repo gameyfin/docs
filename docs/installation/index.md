@@ -12,6 +12,10 @@ See [Docker Installation](docker.md).
 
 See [Unraid Installation](unraid.md).
 
+## Easypanel
+
+See [Easypanel Installation](easypanel.md).
+
 ## Manual Installation
 
 Not officially supported yet.

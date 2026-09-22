@@ -97,6 +97,7 @@ nav:
     - installation/migration-from-v1.md
     - installation/docker.md
     - installation/unraid.md
+    - installation/easypanel.md
     - installation/getting-started.md
   - "Configuration":
     - configuration/index.md
