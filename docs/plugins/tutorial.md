@@ -5,8 +5,10 @@ description: Learn how to create Gameyfin plugins
 
 !!! example "Unstable Feature"
 
-    Gameyfin's plugin API is currently in an **unstable** state.  
+    Gameyfin's plugin API is currently in an **unstable** state.
     Expect breaking changes until the release of `2.0.0` (probably even after that).
+    Gameyfin `2.5.0` introduces breaking changes in the plugin API.  
+    Make sure your plugin depends on the matching `plugin-api` version before compiling.
 
 # Plugin Development Tutorial
 
@@ -57,9 +59,9 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
    ```kotlin
    dependencies {
      // ... other dependencies
-     ksp("care.better.pf4j:pf4j-kotlin-symbol-processing:2.1.21-1.0.2") // match with your Kotlin version
+      ksp("care.better.pf4j:pf4j-kotlin-symbol-processing:2.1.21-1.0.2") // match with your Kotlin version
            
-     compileOnly("org.gameyfin:plugin-api:2.0.0") // match with your Gameyfin version
+      compileOnly("org.gameyfin:plugin-api:2.5.0") // match with your Gameyfin version
    }
    ```
 4. **Build Script**: Ensure your `build.gradle.kts` file is set up to build a JAR file containing your plugin code and resources:
@@ -128,7 +130,15 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
       OPTION_THREE
     }
    
-    class TutorialPlugin(wrapper: PluginWrapper) : ConfigurableGameyfinPlugin(wrapper) {
+    class TutorialPlugin(context: PluginContext) : ConfigurableGameyfinPlugin(context) {
+
+        companion object {
+            lateinit var plugin: TutorialPlugin
+        }
+
+        init {
+            plugin = this
+        }
     
         /**
          * This is the configuration metadata for the plugin.
@@ -244,11 +254,13 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
             private val log = LoggerFactory.getLogger(this::class.java)
         }
 
+        override val supportedPlatforms: Set<Platform> = emptySet<Platform>()
+
         /**
          * Implement this method to provide game metadata from your plugin.
          *
-         * The method receives a "gameId" which is usually the title of a video game.
-         * The task of your plugin is to match this gameId to one or more video games and return metadata about it.
+         * The method receives a "gameTitle" which is usually the title of a video game.
+         * The task of your plugin is to match this gameTitle to one or more video games and return metadata about it.
          * The metadata should be returned as a list of GameMetadata objects with the best match first and the worst match last.
          * If you could not find any matches, return an empty list.
          *
@@ -272,13 +284,19 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
          * - features: A list of features the game has.
          * - perspectives: A list of perspectives the game can be played from.
          *
-         * @param gameId This is the name of a file or folder that Gameyfin found in a game library.
+         * @param gameTitle This is the name of a file or folder that Gameyfin found in a game library.
+         * @param platformFilter The set of platforms selected by Gameyfin, used to narrow down the search.
          * @param maxResults The maximum number of results to return. You can return fewer results if you want.
          */
-        override fun fetchByTitle(gameTitle: String, maxResults: Int): List<GameMetadata> {
+        override fun fetchByTitle(gameTitle: String, platformFilter: Set<Platform>, maxResults: Int): List<GameMetadata> {
 
-            // Log the gameId and maxResults for debugging purposes.
-            log.debug("HelloWorldMetadataProvider: Fetching metadata for gameTitle: {} with maxResults: {}", gameTitle, maxResults)
+            // Log the gameTitle and maxResults for debugging purposes.
+            log.debug(
+                "HelloWorldMetadataProvider: Fetching metadata for gameTitle: {} with platformFilter: {} and maxResults: {}",
+                gameTitle,
+                platformFilter,
+                maxResults
+            )
 
             // For demonstration purposes, we will return a hardcoded example result.
             val exampleResult = GameMetadata(
@@ -301,6 +319,9 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
          * @return A GameMetadata object containing the metadata of the game, or null if no match was found.
          */
         override fun fetchById(id: String): GameMetadata? {
+            if (id != "hello-world-game") {
+                return null
+            }
             return GameMetadata(
                 title = "Hello World Game",
                 originalId = id
@@ -308,6 +329,42 @@ Open the `build.gradle.kts` file and configure it for your plugin development. H
         }
    }
    ```
+
+   Gameyfin 2.5.0 also adds a task extension point and read-only host data access.
+   If you want your plugin to expose a task, you can add another `@Extension` class that implements `GameyfinTask`.
+
+   The example below shows a task that reads the current games, libraries and collections from the host application and logs a small inventory snapshot:
+
+   ```kotlin
+   @Extension
+   class InventorySnapshotTask : GameyfinTask {
+
+       companion object {
+           private val log = LoggerFactory.getLogger(InventorySnapshotTask::class.java)
+       }
+
+       override val key = "inventory-snapshot"
+       override val name = "Inventory snapshot"
+       override val description = "Logs a snapshot of the current Gameyfin libraries, collections and games."
+       override val defaultSchedule = "0 15 4 * * *"
+       override val scheduledByDefault = false
+
+       override fun execute(context: TaskContext): TaskResult {
+           val games = TutorialPlugin.plugin.dataService.getGames()
+           val libraries = TutorialPlugin.plugin.dataService.getLibraries()
+           val collections = TutorialPlugin.plugin.dataService.getCollections()
+
+           val summary = "Inventory snapshot: ${games.size} games, ${libraries.size} libraries, ${collections.size} collections"
+           log.info(summary)
+           context.progress("Collected inventory snapshot", 1, 1)
+           return TaskResult(summary)
+       }
+   }
+   ```
+
+   Tasks can also declare settings and parameters. Use `TaskContext.setting(...)` to read persisted settings and `TaskContext.parameter(...)` to read values entered when a task is started manually.
+
+   Gameyfin provides the read-only data service through `GameyfinPlugin.dataService` and `PluginContext.dataService`, which is how tasks can inspect the host application without mutating it.
    
 5. **Build the Plugin**: Run the Gradle build task to compile your plugin and create a JAR file. You can do this from the command line:
    ```bash
