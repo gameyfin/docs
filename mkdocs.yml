@@ -13,28 +13,28 @@ copyright: Copyright &copy; 2022 - <script>document.write(new Date().getFullYear
 
 # Configuration
 theme:
-  name: material
+  variant: modern
   custom_dir: overrides
   logo: assets/logo.svg
   favicon: assets/logo.svg
   palette:
     - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/brightness-auto
+        icon: lucide/sun-moon
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: white
-      accent: purple
+      primary: deep purple
+      accent: blue
       toggle:
-        icon: material/brightness-7
+        icon: lucide/sun
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: black
+      primary: deep purple
       accent: blue
       toggle:
-        icon: material/brightness-4
+        icon: lucide/moon
         name: Switch to system preference
   font:
     code: JetBrains Mono
@@ -54,7 +54,6 @@ plugins:
   - glightbox
   - blog
 
-# Additional configuration
 # Additional configuration
 extra:
   generator:
