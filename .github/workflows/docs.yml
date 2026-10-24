@@ -33,7 +33,7 @@ jobs:
       - name: 🔄 Update submodules
         id: submodule-update
         run: |
-          git submodule update --remote --merge
+          git submodule update --remote --force
           if [[ -n $(git status --porcelain) ]]; then
             echo "changes=true" >> $GITHUB_OUTPUT
           else
