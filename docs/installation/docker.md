@@ -37,10 +37,16 @@ Finally if you want to use the included torrent plugin, you need to expose the n
 The ports can be changed if needed (either by mapping to another port on your host or by changing the plugin configuration), but the default ports are recommended for compatibility with other applications.
 
 #### Compose File
-You can use the following `docker-compose.yml` file to run Gameyfin:
+You can use the following `docker-compose.yml` file to run Gameyfin with an embedded H2 database (recommended for most setups):
 
 ```yaml title="docker-compose.yml"
 --8<-- "external/gameyfin/docker/docker-compose.example.yml"
+```
+
+If you want to use Postgres as the database instead of SQLite, you can use the following `docker-compose.yml` file:
+
+```yaml title="docker-compose.yml"
+--8<-- "external/gameyfin/docker/docker-compose.postgres.example.yml"
 ```
 
 Start Gameyfin using Docker Compose with the following command:
