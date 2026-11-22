@@ -1,6 +1,11 @@
 name: publish docs
 on:
   workflow_dispatch:
+    inputs:
+      gameyfin_ref:
+        description: 'Gameyfin release tag or commit (empty uses its default branch)'
+        required: false
+        type: string
   pull_request:
   push:
     branches:
@@ -13,11 +18,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          submodules: recursive
 
-      - name: Update Gameyfin source
-        run: git submodule update --remote --init --recursive
+      - name: Checkout Gameyfin source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: gameyfin/gameyfin
+          ref: ${{ inputs.gameyfin_ref }}
+          path: external/gameyfin
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0

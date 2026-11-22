@@ -23,3 +23,10 @@ To compare against another Gameyfin checkout:
 ```sh
 python3 scripts/generate_configuration.py --source-root ../gameyfin
 ```
+
+## Deploy docs after a Gameyfin release
+
+Gameyfin's `Release` workflow dispatches this repository's `publish docs` workflow after publishing the GitHub release.
+It passes the release tag through the `gameyfin_ref` input. The docs build checks out that tag, so configuration,
+Docker examples, and the API contract all come from the released code. Failed releases and runs without GitHub release
+publication do not trigger a docs deployment. Prereleases also trigger an update.
