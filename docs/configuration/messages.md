@@ -1,21 +1,22 @@
+---
+icon: material/email
+---
+
 # Messages
 
-## E-Mail
+Open **Administration → Messages** to configure email delivery and notification templates.
+Email notifications are disabled by default.
 
-### Enable e-mail notifications
-Default: `false`  
-This option enables e-mail notifications in Gameyfin. If enabled, users will receive e-mails for various events (see "Message Templates").
+## Email delivery
 
-### E-Mail server configuration
-This section allows you to configure the e-mail server for sending notifications. You will need to provide the following information:
+Enter your SMTP server's hostname, port, username, and password as required by your provider.
+The default port is **587**. Use a hostname such as `smtp.example.com`, not a webmail URL.
+Enable email notifications, save the settings, and send a test message before relying on delivery.
+When using a reverse proxy, forward the original host and protocol so notification links use the URL users visit.
 
-- **URL**: The hostname of your e-mail server.
-- **Port**: The port of your e-mail server.
-- **Username**: The username for your e-mail server.
-- **Password**: The password for your e-mail server (optional).
+See the [reference](reference.md#messages-providers-email-enabled) for all email settings.
 
-You can test the e-mail server configuration by clicking the "Test" button.
+## Templates
 
-## Message Templates
-This section allows you to configure the message templates for e-mail notifications.
-You can also send test messages to verify the configuration.
+Edit the available message templates in this section and send test notifications to check their output.
+Plugins can also send notifications through the [plugin API](../plugins/info-for-devs.md).

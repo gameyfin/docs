@@ -6,6 +6,7 @@ authors:
   - grimsi
 categories:
   - FOSS
+icon: material/source-branch
 ---
 
 # Why Gameyfin is FOSS: The Risks of Source-Available Software and How You Can Support Open Alternatives

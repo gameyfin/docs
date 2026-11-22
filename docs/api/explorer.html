@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gameyfin public API reference</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; }
+    header { padding: 1rem; border-bottom: 1px solid #ddd; }
+    header a { color: #673ab7; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="openapi.json" download>Download OpenAPI</a>
+    · Read-only reference. Send API requests to your own Gameyfin instance.
+  </header>
+  <noscript>Enable JavaScript to browse this reference, or download the OpenAPI document above.</noscript>
+  <div id="redoc"></div>
+  <script src="https://cdn.jsdelivr.net/npm/redoc@2.5.2/bundles/redoc.standalone.js"></script>
+  <script>
+    if (window.Redoc) {
+      Redoc.init("openapi.json", {
+        disableGoogleFont: true,
+        hideDownloadButton: true,
+        theme: { colors: { primary: { main: "#673ab7" } } }
+      }, document.getElementById("redoc"));
+    } else {
+      document.getElementById("redoc").textContent =
+        "The API viewer could not load. Download the OpenAPI document using the link above.";
+    }
+  </script>
+</body>
+</html>

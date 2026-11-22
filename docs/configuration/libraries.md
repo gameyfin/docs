@@ -1,68 +1,54 @@
-# Libraries
+---
+icon: material/bookshelf
+---
 
-## Permissions
+# Libraries and collections
 
-### Allow access to game libraries without login
-Default: `false`  
-This option allows users to access game libraries without logging in (great if you want to share your game library with friends or family).
+Open **Administration → Games** to manage libraries, collections, and scanning.
+A library points to one or more folders on the server. A collection groups games for browsing without changing their folders.
 
-## Scanning
+## Add a library
 
-### Enable automatic scanning using file system watchers
-Default: `true`  
-This option enables automatic scanning of game libraries using file system watchers. This way Gameyfin will automatically detect changes in your game libraries and update the database accordingly.
+Use **Add new library**, give it a name, and add at least one source path.
+Docker paths must match the container side of your volume mapping, such as `/games`.
+Gameyfin needs permission to read the folder and its files.
 
-### Scan empty directories
-Default: `false`  
-This option allows Gameyfin to scan empty directories in your game libraries. This is useful if you want to keep track of directories that do not contain any games, but it may slow down the scanning process.
+Install, configure, and enable a metadata plugin before scanning. Set provider priorities under [Plugins](plugins.md).
+Use quick scans to find new games; full scans also refresh existing games while preserving fields edited by users.
+Scheduled scans are configured under [Tasks](tasks.md).
 
-### Extract title from file names using regex
-Default: `false`  
-This option allows Gameyfin to extract the title of a game from its file name using a regular expression.
+## Scanning settings
 
-### Regex to extract title from file names
-Default: `^[^\[]+`  
-This option allows you to specify the regular expression used to extract the title from file names.  
-The default regex will extract everything until the first opening square bracket, e.g. `Game Title [2025] [Action]` will become `Game Title`.  
-To test your custom regex you can use websites such as [https://regexr.com/](https://regexr.com/).
+Automatic filesystem watching defaults to **off**. Enable it to scan affected folders when files change.
+Choose which file extensions count as games and whether empty directories should be scanned.
+Optional Java-compatible regular expressions can remove release tags from filenames before matching.
+The title matching ratio compares results from different metadata providers; lowering it can merge unrelated games.
 
-### Minimum ratio for title matching
-Default: `90`  
-Range: `0-100`  
-This option filters the results of the title matching algorithm. If the ratio is below this value, the title will not be matched.  
-Lowering this value may result in more matches, but it may also result in more false matches.
+Scan concurrency defaults to **4**, with a declared range of **1–16**.
+Lower it if scans use too much memory. Changes apply to new scans.
+See the [generated reference](reference.md#library-scan-enable-filesystem-watcher) for all scanning settings and defaults.
 
-### File extensions to consider as games
-Default: `zip,tar,gz,rar,7z,bz2,xz,iso,jar,tgz,exe,bat,cmd,com,msi,bin,run,app,dmg,elf`  
-This option allows you to specify which file extensions should be considered as games.
+## Manage games and unmatched paths
 
-## Metadata
+Open a library's configuration to edit its details, manage games, and review unmatched paths.
+You can correct a game's metadata or match it manually.
+Removing a game from the library adds its path to the unmatched paths list so later scans do not immediately re-add it.
+Removing a user-generated unmatched-path entry lets a future scan try that path again.
+Plugin-generated unmatched paths are retried by later scans automatically.
 
-### Enable periodic refresh of video game metadata
-Default: `true`  
-This option enables periodic refresh of video game metadata.  
-Gameyfin will automatically update the metadata of your games based on the configured sources.
+See [Matching troubleshooting](../faq/index.md#how-can-i-improve-the-matching-accuracy) for help with filenames and providers.
 
-### Schedule for periodic metadata refresh
-Default: `@daily`  
-This option allows you to configure the schedule for periodic metadata refresh.  
-The format is a cron expression in Spring cron format ([documentation](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/support/CronExpression.html#parse(java.lang.String))).
+## Collections
 
-## Libraries
-This section allows you to manage your game libraries in Gameyfin.
-Add a new library, scan a library for games or open the administration page of a library.
+Create collections from the **Collections** section of **Games** and add games to group them for your users.
+The library and collection order controls change their display order.
 
-### Library administration
+## Minimum ratio for title matching {#minimum-ratio-for-title-matching}
 
-#### Details
-This section allows you to manage the details of your game library, such as the name and file system paths of library.  
-You can also delete the library from here.
+This setting lives under **Games → Scanning**. See the [reference](reference.md#library-scan-title-match-min-ratio) for its default and declared bounds.
 
-#### Games
-This section allows you to manage the games in your library.  
-You can edit the details of a game, delete a game or match a game manually.  
-If you delete a game, its path will be added as "unmatched path", effectively excluding it from future scans.
+## Upload games
 
-#### Unmatched paths
-This section allows you to manage the unmatched paths in your library.  
-If you delete an unmatched path, it will be included in future scans again.
+Administrators can use **Upload** in the Games administration page to add files through the browser.
+Choose the destination library and directory, select metadata, and review the upload before starting.
+The destination must be writable by Gameyfin; a Docker library mounted with `:ro` cannot accept uploads.

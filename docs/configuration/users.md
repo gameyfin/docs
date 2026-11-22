@@ -1,14 +1,14 @@
+---
+icon: material/account-group
+---
+
 # Users
 
-## Sign-Ups
+Open **Administration → Users** to create, edit, approve, or delete accounts and assign roles.
+The account created during setup is the initial administrator.
 
-### Allow new users to sign up by themselves
-Default: `false`  
-This option allows new users to sign up by themselves. If disabled, only administrators can create new users.
+Self-registration is disabled by default. When enabled, users can register from the login page.
+Administrator confirmation is enabled by default, so newly registered accounts remain inactive until approved.
 
-### Admins need to confirm new users
-Default: `true`  
-This option requires administrators to confirm new users before they can log in. If disabled, new users can log in immediately after signing up.
-
-## Users
-This section allows you to manage users in Gameyfin. You can create, edit, and delete users, as well as assign roles and permissions.
+See the [reference](reference.md#users-sign-ups-allow) for registration settings.
+SSO account matching and provider roles are configured under [Security](sso.md).

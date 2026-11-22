@@ -1,49 +1,55 @@
 ---
 title: Getting Started
-description: First steps with Gameyfin
+description: From your first login to your first game library
+icon: material/rocket-launch
 ---
 
-# Getting Started with Gameyfin
+# Getting started
 
-After installing Gameyfin and opening the web interface, you will be greeted with the setup page.  
-This page will guide you through the initial configuration of Gameyfin.  
+Open Gameyfin in your browser after [installation](docker.md).
 
-## Initial Setup
+## 1. Complete the setup wizard
 
-Choose your preferred theme and click on the right arrow to proceed.  
-You will then be asked to create an admin account.  
-That's it! You can now log in with your new admin account.
+1. Choose your theme.
+2. Keep **H2 (embedded)** for a simple installation, or configure and test a PostgreSQL connection.
+3. Create your administrator account with a username, email address, and password of at least eight characters.
+4. Finish the wizard and log in with that account. A database change may restart Gameyfin first.
 
-## Configuring the Plugins
+If you are moving an existing installation, the welcome screen also offers **Restore from backup**.
+Read [Backup and restore](../configuration/system.md) before restoring.
 
-Gameyfin comes with a set of pre-installed plugins that provide various functionalities.  
-You need to enable and configure the plugins you want to use.  
-To do this, go to the **Plugins** section in the admin interface (click on your avatar in the top right corner).  
+## 2. Install plugins
 
-### Plugin Management Page
-Here you will see a list of all available plugins and by clicking on the **Configure** button you can access the configuration page of each plugin.  
-The page also contains a short documentation for each plugin, which explains its functionality and how to use it.  
+After your first administrator login, **Choose your plugins** opens the marketplace as the final setup step.
+Gameyfin ships **without pre-installed plugins**.
 
-### Plugin Priority
-On the right hand side, you will find a button to prioritize the plugins.  
-For game metadata plugins, the order in which they are listed determines how Gameyfin will search for metadata.  
-For download providers, the order determines which provider will be shown on top of the list for your users.
+1. Install a metadata plugin, such as IGDB or Steam, to find game descriptions and artwork.
+2. Install a download provider, such as Direct Download, if users should download games through Gameyfin.
+3. Wait for each installation to complete. The task popover shows progress and history.
+4. Click **Finish setup**.
+5. Open **Administration → Plugins → Installed**, review each plugin's configuration, and enable it. Some providers require credentials from an external service.
 
-### Enabling Plugins
-To enable a plugin, click on the **On/Off** button next to the **Configure** button.  
-If your configuration is valid (you can check this by saving the configuration or by clicking the **Cirle Arrow** button above the configuration options), the plugin will be enabled, and you will see a green checkmark at the bottom of the plugin card.
+You can finish without installing anything and return through **Administration → Plugins** later.
+A library scan requires at least one enabled metadata provider. Installing a plugin does not replace configuring and enabling it.
 
-## Libraries
-Go to the **Libraries** section in the admin interface to add your media libraries.  
-You can do this by clicking on the **Add Library** button near the bottom of the page.  
-Add at least one source folder to the library, so Gameyfin can scan your media files.  
-After that you can configure the library and its contents by clicking on the **Configure** button.
+For more detail, see [Managing plugins](../configuration/plugins.md).
 
-## Games
-After you have scanned your first library, you can go to the home page of Gameyfin and browse your library.
+## 3. Add your first library
 
-## Next Steps
-You can now start using Gameyfin!
+1. Open your avatar menu and select **Administration → Games**.
+2. Use **Add new library**, enter a name, and add the folder containing your games.
+3. With Docker, use the path **inside the container**, such as `/games`, rather than the host path `/srv/games`.
+4. Start a quick scan. Follow progress in the task popover.
+5. Open the home page to browse the matched games.
 
-## Troubleshooting
-If you encounter any issues, please refer to this documentation or the [Github Issues](https://github.com/gameyfin/gameyfin/issues) for help.
+For example, `/games/My Game/` can contain the files for one game.
+Check [Libraries and collections](../configuration/libraries.md) if paths remain unmatched.
+Automatic filesystem watching is disabled by default; configure it under **Games → Scanning**, or schedule scans under **Tasks**.
+
+## 4. Check access and backups
+
+Access without login is disabled by default. Keep it disabled unless you intend to share your library publicly.
+Create accounts through **Users**, and enable self-registration only if you want it.
+
+Set up [backups](../configuration/system.md) and keep your `APP_KEY` safe before adding more users.
+See [Troubleshooting](../faq/index.md) if setup, matching, or downloads fail.

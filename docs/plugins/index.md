@@ -1,31 +1,29 @@
 ---
 title: Plugins
-description: Gameyfin Plugin Development Guide
+description: Extend Gameyfin through the plugin marketplace
 icon: material/power-plug
 ---
 
-## How Gameyfin Plugins work
+# Plugins
 
-Gameyfin plugins are designed to extend the functionality of the application by allowing developers to create custom
-features or integrate with external services.
+Gameyfin ships without pre-installed plugins. Install the features you need from the marketplace during setup or under **Administration → Plugins**.
 
-Plugins can be enabled or disabled in the Admin UI at runtime, but Gameyfin has to be restarted after you (un)install a
-plugin.
+## What plugins provide
 
-### Types of Plugins
+- **Game metadata:** descriptions, platforms, artwork, and other information from sources such as IGDB and Steam.
+- **Downloads:** browser downloads or alternative transfer methods such as torrents.
+- **Game stores:** store product lookup, version/build information, DLC, and edition suggestions.
+- **Background tasks:** scheduled or manually started work, with progress and logs.
+- **Notifications and actions:** messages to users and optional actions handled by a plugin.
 
-Gameyfin supports two types of plugins:
+One plugin can implement several extension points.
+Marketplace installation, updates, and removal load or unload plugins at runtime without restarting the whole application.
 
-- **Game Metadata Plugins**: These plugins are used to fetch metadata for games from external sources.
-- **Download Provider Plugins**: These plugins are used to provide download functionality for games.
+## For administrators
 
-## Bundled Plugins
+Follow [Managing plugins](../configuration/plugins.md) to install, configure, enable, and prioritize providers.
+Read [Plugin security](security.md) before installing third-party code.
 
-Gameyfin comes with several bundled plugins that provide essential functionality:
+## For developers
 
-- **IGDB Metadata Plugin**: This plugin fetches game metadata from IGDB.
-- **Steam Metadata Plugin**: This plugin fetches game metadata from Steam using <em>undocumented</em> APIs.
-- **SteamGridDB Metadata Plugin**: This plugin fetches only covers from SteamGridDB.
-- **Direct Download Plugin**: This plugin allows your users to directly download games in their web browser.
-- **Torrent Download Plugin**: This plugin runs a built-in torrent tracker and offers users to download via Torrent so
-  the network load is distributed between all users that download a game.
+Start with the [tutorial](tutorial.md), then use the [API guide](info-for-devs.md) for the available extension points and host services.

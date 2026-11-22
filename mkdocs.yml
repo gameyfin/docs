@@ -93,23 +93,33 @@ nav:
     - index.md
   - "Installation":
     - installation/index.md
-    - installation/migration-from-v1.md
     - installation/docker.md
     - installation/unraid.md
     - installation/getting-started.md
+    - installation/migration-from-v1.md
   - "Configuration":
     - configuration/index.md
     - configuration/libraries.md
+    - configuration/requests.md
+    - configuration/downloads.md
     - configuration/users.md
     - configuration/sso.md
+    - configuration/api.md
     - configuration/messages.md
     - configuration/plugins.md
+    - configuration/tasks.md
     - configuration/logs.md
+    - configuration/system.md
+    - configuration/startup.md
+    - configuration/reference.md
   - "Guides":
       - guides/index.md
       - "SSO":
         - guides/sso/authentik.md
         - guides/sso/pocketid.md
+  - "Public API":
+    - api/index.md
+    - api/reference.md
   - "Plugins":
     - plugins/index.md
     - plugins/security.md

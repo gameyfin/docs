@@ -1,67 +1,67 @@
 name: publish docs
 on:
   workflow_dispatch:
+  pull_request:
   push:
     branches:
       - main
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: ⚙️ Configure GitHub Pages
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
-
-      - name: 📥 Checkout repository
+      - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           submodules: recursive
-          fetch-depth: 0
 
-      - name: 🔧 Configure Git Credentials
-        run: |
-          git config --global user.name github-actions[bot]
-          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+      - name: Update Gameyfin source
+        run: git submodule update --remote --init --recursive
 
-      - name: 🔄 Update submodules
-        id: submodule-update
-        run: |
-          git submodule update --remote --force
-          if [[ -n $(git status --porcelain) ]]; then
-            echo "changes=true" >> $GITHUB_OUTPUT
-          else
-            echo "changes=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: 💾 Commit and push submodule updates
-        if: steps.submodule-update.outputs.changes == 'true'
-        run: |
-          git add .
-          git commit -m "🤖 Update submodules [skip ci]"
-          git push
-
-      - name: 🐍 Set up Python
+      - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
-          python-version: 3.x
+          python-version-file: .python-version
 
-      - name: 📦 Install Zensical
-        run: pip install zensical
+      - name: Install locked documentation dependencies
+        run: |
+          python -m pip install uv
+          uv sync --locked
 
-      - name: 🛠️ Build site
-        run: zensical build --clean
+      - name: Test configuration generator
+        env:
+          GAMEYFIN_SOURCE_ROOT: external/gameyfin
+        run: python -m unittest discover -s tests -v
 
-      - name: 📤 Upload artifact
+      - name: Generate configuration reference
+        run: python scripts/generate_configuration.py
+
+      - name: Include springdoc public API contract
+        run: cp external/gameyfin/app/src/test/resources/openapi/v1.json docs/api/openapi.json
+
+      - name: Build site
+        run: uv run zensical build --clean
+
+      - name: Upload artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: site
 
-      - name: 🚀 Deploy to GitHub Pages
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
         id: deployment

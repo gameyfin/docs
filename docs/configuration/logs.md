@@ -1,23 +1,15 @@
+---
+icon: material/text-box-search
+---
 
 # Logs
 
-## Configuration
+Open **Administration → Logs** to view live application logs and configure logging.
+Logs are stored in `./logs` by default and retained for **30 days**.
+The Gameyfin log level defaults to `INFO`; the root level defaults to `WARN`.
+Use `DEBUG` temporarily when investigating a problem, then restore the normal level.
 
-### Storage folder for log files
-Default: `./logs`  
-This option allows you to specify the storage folder for log files. The logs will be stored in this folder, and you can access them through the web interface.
+See the [reference](reference.md#logs-folder) for log settings and supported levels.
+Individual task runs have their own logs under [Tasks](tasks.md).
 
-### Log retention in days
-Default: `30`  
-This option allows you to specify how many days log files should be retained. After this period, log files will be automatically deleted.
-
-### Log level (Gameyfin)
-Default: `INFO`  
-This option allows you to specify the log level for Gameyfin and official plugins.
-
-### Log level (Root)
-Default: `WARN`  
-This option allows you to specify the log level for the rest of the application and third-party plugins.
-
-## Application logs
-Gameyfin will display a real-time view of the application logs in the web interface here.
+If live logs do not update behind a reverse proxy, check [WebSocket support](../faq/index.md#library-scan-progress-andor-application-logs-are-not-shown-in-the-ui).

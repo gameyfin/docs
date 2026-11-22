@@ -1,6 +1,7 @@
 ---
 title: Pocket-ID
 description: Connect Gameyfin with Pocket-ID for Single Sign-On (SSO)
+icon: material/fingerprint
 ---
 
 ## Create an OIDC client in Pocket-ID
@@ -11,7 +12,7 @@ Go to `OIDC Clients > Add OIDC Client` and follow these steps:
 
 1. **Name**: Fill out to your liking.
 2. **Client launch URL**: `https://<your-gameyfin-domain>`
-3. **Callback URLs**:`https://<your-gameyfin-domain>/login/oauth2/code/oidc` (or leave empty for automatic detection)
+3. **Callback URLs**:`https://<your-gameyfin-domain>/login/oauth2/code/oidc`
 
 
 ## Create group(s)
@@ -31,18 +32,21 @@ Click `Save` and then add a custom claim to each group (`Custom Claims > Add cus
 Click `Save` to create the custom claim.
 
 Add your users to their respective groups in Pocket-ID.
-Users that are not in either group will automatically be assigned the "User" role.
+For ordinary users, return `["GAMEYFIN_USER"]` in the roles claim. Verify that every intended user receives a role.
+
+Create a group for ordinary users with a `roles` claim of `["GAMEYFIN_USER"]`, and assign users to the appropriate group.
 
 ## Configure Gameyfin
 
-Go to Gameyfin's SSO settings page (`Administration > SSO`), enable SSO and fill out the SSO provider configuration with the values from Pocket-ID.  
+Go to Gameyfin's SSO settings page (`Administration > Security`), enable SSO and fill out the SSO provider configuration with the values from Pocket-ID.
+
 Pocket-ID does not display an "Issuer URL" directly, use the domain of your Pocket-ID instance **without a trailing slash (`/`)**
 
 You can use "Auto-populate" to fill most the values automatically, or copy them manually from the Pocket-ID application you created earlier.
 
 *Hint: "Auto-populate" will only work if Gameyfin and Pocket-ID are hosted under the same domain or if you have configured a CORS policy for Pocket-ID that allows calls from your Gameyfin domain. This is not an issue of Gameyfin but rather a security measure implemented by Pocket-ID.*
 
-Restart Gameyfin to apply the changes.
+Save the settings and test the SSO login. Gameyfin applies SSO configuration changes without an application restart.
 
 *Hint: If there is a problem with your SSO configuration, and you can't log in, simply append `?direct=1` to the URL to bypass SSO and login with your username and password.*
 

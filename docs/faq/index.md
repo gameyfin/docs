@@ -1,74 +1,82 @@
 ---
 title: FAQ
-description: Gameyfin Installation Guide
+description: Troubleshoot setup, matching, and downloads
 icon: material/help-circle
 ---
 
-# Frequently Asked Questions
+# Frequently asked questions
 
 ## Gameyfin doesn't start because of permission issues
 
-Gameyfin requires access to the filesystem to scan your game libraries and to read the game files.  
-If you run Gameyfin as a non-root user, you need to make sure that the user has read access to the game files and directories.  
-You can also [configure the user and group](../installation/docker.md#puid-pgid) that Gameyfin should run as in the `docker-compose.yml` file.
+The container user needs read and directory traversal access to game folders, plus write access to its persistent Gameyfin folder.
+Check [PUID and PGID](../installation/docker.md#puid-pgid) and the ownership of your mounted directories.
+Read the first error in `docker compose logs gameyfin` to find the affected path.
+
+## Why does a library folder not appear in Docker?
+
+Docker can only see mounted folders. Map a host folder such as `/srv/games` to a container path such as `/games`.
+Enter `/games` in Gameyfin. Check permissions if the mount exists but cannot be read.
+
+## Why are there no plugins after installation?
+
+Gameyfin ships without pre-installed plugins.
+Install them from **Choose your plugins** after your first administrator login, or through **Administration → Plugins**.
+Configure and enable at least one metadata provider before scanning. Install a download provider for downloads.
+
+## Why can I browse games but not download them?
+
+Install and enable a download provider, such as Direct Download, in **Administration → Plugins**.
+Read its configuration instructions and check that Gameyfin can read the game files.
+Torrent downloads require the plugin's network ports in addition to the web interface port.
 
 ## Library scan progress and/or application logs are not shown in the UI
 
-Gameyfin uses websockets extensively to send real-time updates to the UI. If you don't see the progress or logs in the UI, check if your reverse proxy is configured correctly to support websockets and that the websocket connection is not blocked by your browser or network settings.
+Gameyfin uses WebSockets for live updates.
+Check that your reverse proxy forwards WebSocket connections and that the browser or network does not block them.
+Inspect task run logs under **Administration → Tasks** as well as application logs.
 
 ## How does Gameyfin match my video games?
 
-The matching algorithm grew a bit more complex compared to the v1 version. Thanks to the new plugin system, Gameyfin can now match games using various sources.  
-Since the plugins can have different matching strategies and algorithms, the matching process is now more flexible and can be customized by the user (by using different plugins or by configuring their plugins).  
-The matching process for library scans is as follows:  
+1. Gameyfin scans the library's folders for game files and directories.
+2. It derives a title from each new path, applying your title-extraction regex if enabled.
+3. Enabled metadata providers supporting the selected platforms search for that title concurrently.
+4. Gameyfin takes each provider's best result and compares normalized titles, including Roman numeral normalization.
+5. It filters incompatible matches and merges metadata according to provider priority.
 
-1. **Filesystem Scan**: Gameyfin scans the filesystem of your libraries for game files and directories.
-2. **Filename Extraction**: It extracts the names of all new game files and directories found in the scan.
-3. **Result Iteration**: Iterating over the extracted filenames, Gameyfin will try to match each filename using the installed plugins.
-    1. The matching process is done in parallel for all plugins so the process takes as long as the slowest plugin to respond (usually IGDB because they enforce rate limits on their API).
-4. **Plugin Matching**: Each installed plugin is queried with a filename to match against its own database or API.
-    1. The plugins have their own matching strategies, so the result quality may vary depending on the plugin used.
-    2. Each plugin returns one result, which is the best match it found for the given filename.
-5. **Title Normalization**: The titles of the results are normalized to lowercase and to only include alphanumeric characters and spaces. Roman numerals are converted to Arabic numerals.
-    1. This is done to ensure that the titles are consistent and can be matched correctly across different data sources.
-6. **Result Filter**: The results from all plugins are filtered based on the normalized game title.
-    1. The closest match is determined using fuzzy matching, which allows for minor differences in titles, such as typos or different naming conventions.
-    2. All other results that do not match the title with a minimum ratio are discarded.
-    3. The filter [can be configured](../configuration/libraries.md#minimum-ratio-for-title-matching).
-7. **Result Merging**: The results from each plugin are merged into a single result.
-    1. The merging uses the configured plugin priorities to determine which plugin's data to use for each field.
-    2. It starts with the first plugin in the priority list and uses its data for all fields. If a field is not set, it will use the next plugin's data in the priority list.
-    3. This continues until all fields are filled or all plugins have been checked.
-8. **Final Result**: The final result is a game enriched with metadata from the plugins, which is linked to the game file or directory on your filesystem.
+The title matching ratio compares results across metadata sources. A lower ratio can merge unrelated games.
+Configure it under [Games → Scanning](../configuration/libraries.md#minimum-ratio-for-title-matching).
 
-The matching process for manual matching via UI is similar, but instead of returning just the top match from each plugin, it returns the top 10 matches from each plugin.
-These matches are then grouped based on title (strict matching instead of fuzzy matching) and release year. The user can then select the best match from the list of matches.
+Manual metadata searches request up to ten results per provider.
+Results are grouped by normalized title and release year so you can choose the correct match.
 
 ## How can I improve the matching accuracy?
 
-There are several ways to improve the matching accuracy:
-
-1. **Use more plugins**: The more plugins you have installed and enabled, the more sources Gameyfin can use to match your games. This increases the chances of finding a match.
-2. **Rename your game files**: The closer the game file names are to the actual game titles, the better the matching accuracy.  
-   Gameyfin uses fuzzy matching, so even if the file name is not exactly the same as the game title, it can still find a match.
-
-## How will the matching process change in the future?
-
-The matching process is still evolving and will continue to improve over time.  
-Jellyfin for example has an [interesting feature](https://jellyfin.org/docs/general/server/media/movies/#metadata-providers) that allows users to include the ID of a game in the file name, which can be used to match the game more accurately.
-
-Again, I am always open to suggestions and feedback, so if you have any ideas on how to improve the matching process, please open an issue on [GitHub](https://github.com/gameyfin/gameyfin/issues).
+- Use clear game titles for filenames or folders. Remove unrelated release tags, or configure a title-extraction regex.
+- Select the correct platforms for the library.
+- Check that metadata providers are enabled, configured, and reachable. More providers can fill missing metadata.
+- Correct a match manually from the game's metadata search if automatic matching picks the wrong game.
+- Review provider priority when sources disagree.
 
 ## What's the difference between "quick scan" and "full scan"?
 
-The "quick scan" only scans for new games while the "full scan" also updates existing games.
+A quick scan finds new games. A full scan also refreshes existing games and their metadata.
+Both can revisit paths that metadata plugins previously failed to match.
+A full scan preserves metadata fields edited by users.
 
-This means that the "quick scan" will only add new games to your library, while the "full scan" will also update the metadata of existing games.
-Fields that have been modified by a user will **not** be overwritten by the "full scan", so you can safely run it without losing your changes.
-
-If you want to reset the metadata of a game, you can do so by using the "Search for metadata" button and selecting a search result. This process will update the metadata of the game with the latest data and will overwrite any changes made by users.
+Choosing a result through **Search for metadata** replaces metadata with the selected result and can overwrite manual edits.
 
 ## What are "ignored paths" and how do they work?
-There are two types of ignred paths: Ones added automatically during a library scan and ones added manually by the user.
-1. **Automatically ignored paths**: During a library scan, Gameyfin may encounter files or directories that it cannot match to any game. These paths are automatically added to the ignored paths list.
-2. **Manually ignored paths**: Users can also manually add paths to the ignored paths list by removing games from the library. This is useful if you have files or directories that you know are not games, and you want to prevent Gameyfin from trying to match them in future scans.
+
+Gameyfin tracks why a path is unmatched or excluded:
+
+- **Plugin-generated:** no metadata match was found, or processing failed. Later scans retry these paths.
+- **User-generated:** a user removed a game from the library. Scans keep that path excluded.
+
+Review unmatched paths in the library's administration page.
+Remove a user-generated entry if you want a later scan to consider that path again.
+
+## Where are periodic metadata refresh settings?
+
+Scheduled library scans are managed in **Administration → Tasks**.
+This replaces the old periodic metadata-refresh controls under Libraries.
+See [Tasks](../configuration/tasks.md) for schedules, settings, progress, and run history.
