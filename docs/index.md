@@ -23,10 +23,10 @@ hide:
 <!-- @formatter:off -->
 
 ![Home](assets/screenshots/home.png){ data-title="Simple" data-description="Gameyfin doesn't care where you purchased your games. Just point it to the folder and hit scan." }
-![Libraries](assets/screenshots/game-requests.png){ data-title="Social" data-description="Users can request games and vote on existing requests directly in Gameyfin." }
+![Discover](assets/screenshots/discover.png){ data-title="Organized" data-description="Gameyfin helps curate your games and organize your collection." }
 
 ![Game](assets/screenshots/game.png){ data-title="Beautiful" data-description="Give your video game library the presentation it deserves." }
-![Plugins](assets/screenshots/admin-plugins.png){ data-title="Extendable" data-description="Use plugins to add new features to your personal instance." }
+![Plugins](assets/screenshots/plugins.png){ data-title="Extendable" data-description="Use plugins to add new features to your personal instance." }
 
 <!-- @formatter:on -->
 </div>
